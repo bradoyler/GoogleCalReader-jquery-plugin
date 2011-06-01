@@ -3,6 +3,7 @@
 /*
 * Google Calendar feed reader - plugin to get upcoming events from a *public* google calendar
 * Parameters: FeedUri, MaxResults & DisplayCount
+* README: Make sure that your gCal feed url end with "/public/full".
 * @version 1.0
 */
 
