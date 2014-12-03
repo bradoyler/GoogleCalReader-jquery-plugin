@@ -7,8 +7,6 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 	apiKey:'Public_API_Key',
 	dateFormat: 'MonthDay',
 	errorMsg:'No events in calendar',
-	timeZone:'America/New_York',
-	futureEvents:false,
 	maxEvents: 50
 }
 ```
