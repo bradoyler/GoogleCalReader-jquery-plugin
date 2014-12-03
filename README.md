@@ -5,7 +5,7 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 {
 	calendarId:'en.usa#holiday@group.v.calendar.google.com',
 	apiKey:'Public_API_Key',
-	dateFormat: 'MonthDay',
+	dateFormat: 'LongDate',
 	errorMsg:'No events in calendar',
 	maxEvents: 50
 }
