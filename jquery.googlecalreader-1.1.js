@@ -14,35 +14,32 @@
 
     var s = '';
     var feedUrl = 'https://www.googleapis.com/calendar/v3/calendars/' +
-      encodeURIComponent(defaults.calendarId.trim()) +
-      '/events?key=' + defaults.apiKey +
+      encodeURIComponent(defaults.calendarId.trim()) +'/events?key=' + defaults.apiKey +
       '&orderBy=startTime&singleEvents=true&maxResults=' + defaults.maxEvents;
 
     $.ajax({
       url: feedUrl,
       dataType: 'json',
       success: function(data) {
-        $($div).append('<h2>' + data.summary +
-          '</h2><div id="timeline_items" class="year-02"></div>');
 
         $.each(data.items, function(e, item) {
           var eventdate = item.start.dateTime || item.start.date ||'';
           var summary = item.summary || '';
-          var description = item.description || '';
+					var description = item.description;
 					var location = item.location;
-					s = '<div id="eventtitle">' + summary + '</div>  When: ' + formatDate(eventdate, defaults.dateFormat.trim());
+					s ='<div class="eventtitle">' + summary + '</div>';
+					s +='<div class="eventdate"> When: '+ formatDate(eventdate, defaults.dateFormat.trim()) +'</div>';
 					if(location) {
-						s +='<br>Where: ' + location;
+						s +='<div class="location">Where: ' + location + '</div>';
 					}
-					s +='<br>' + description;
-					$('#eventlist').append('<li>' + s + '</li>');
+					if(description) {
+						s +='<div class="description">'+ description +'</div>';
+					}
+					$($div).append('<li>' + s + '</li>');
         });
-
       },
       error: function(error) {
-        s += '<div class="entry"><p>' + defaults.errorMsg + ' | ' +
-          error + '</p></div>';
-        $($div).append(s);
+        $($div).append('<p>' + defaults.errorMsg + ' | ' + error + '</p>');
       }
     });
 
