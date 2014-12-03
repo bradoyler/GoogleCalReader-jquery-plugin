@@ -7,28 +7,23 @@
         #eventtitle { font-weight:bold; }
         #eventlist { list-style:none; }
         #eventlist li { padding:3px; border-bottom:2px solid #eee;}
-        
+
     </style>
 </head>
 
-
-    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-    <script type="text/javascript">
-        google.load("gdata", "1.x", { packages: ["calendar"] });
-    </script> 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>   
-<script src="jquery.googlecalreader-1.0.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="jquery.googlecalreader-1.1.js" type="text/javascript"></script>
 
 <script type="text/javascript">
    jQuery(function ($) {
-       $.gCalReader({
-                  feedUri: 'http://www.google.com/calendar/feeds/w3gifts.com_4to3o9ftjdujjhkf47dp1r7ii8%40group.calendar.google.com/public/full',
-                  maxresults: 30
-		        });
-		    });
+       $('#eventlist').gCalReader({
+         calendarId:'josephinecalendar@gmail.com',
+         apiKey:'AIzaSyAVhU0GdCZQidylxz7whIln82rWtZ4cIDQ'
+        });
+	 });
 </script>
 <body>
-
+<div id="eventlist">
+</div>
 </body>
 </html>
