@@ -1,6 +1,8 @@
 Google Calendar feed reader - plugin to get upcoming events from a *public* google calendar
 
-## Default Options
+#### [Demo](http://bradoyler.github.io/GoogleCalReader-jquery-plugin/examples/)
+
+### Default Options
 ```js
 {
 	calendarId:'en.usa#holiday@group.v.calendar.google.com',
@@ -11,7 +13,7 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 }
 ```
 
-## Example
+### Example
 
 ```html
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
