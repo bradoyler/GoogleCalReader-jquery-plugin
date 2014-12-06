@@ -8,19 +8,24 @@
         apiKey: 'Public_API_Key',
         dateFormat: 'LongDate',
         errorMsg: 'No events in calendar',
-        maxEvents: 25
+        maxEvents: 50,
+        sortDescending: true
       },
       options);
 
     var s = '';
     var feedUrl = 'https://www.googleapis.com/calendar/v3/calendars/' +
       encodeURIComponent(defaults.calendarId.trim()) +'/events?key=' + defaults.apiKey +
-      '&orderBy=startTime&singleEvents=true&maxResults=' + defaults.maxEvents;
+      '&orderBy=startTime&singleEvents=true';
 
     $.ajax({
       url: feedUrl,
       dataType: 'json',
       success: function(data) {
+        if(defaults.sortDescending){
+          data.items = data.items.reverse();
+        }
+        data.items = data.items.slice(0, defaults.maxEvents);
 
         $.each(data.items, function(e, item) {
           var eventdate = item.start.dateTime || item.start.date ||'';

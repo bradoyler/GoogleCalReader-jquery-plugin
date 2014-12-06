@@ -9,7 +9,8 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 	apiKey:'Public_API_Key',
 	dateFormat: 'LongDate',
 	errorMsg:'No events in calendar',
-	maxEvents: 50
+	maxEvents: 50,
+	sortDescending: true
 }
 ```
 
@@ -26,4 +27,3 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 </script>
 <div id="eventlist"></div>
 ```
-
