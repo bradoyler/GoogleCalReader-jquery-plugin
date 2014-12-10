@@ -27,3 +27,6 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 </script>
 <div id="eventlist"></div>
 ```
+
+#### Uses Google Calendar api endpoint @
+https://developers.google.com/google-apps/calendar/v3/reference/events/list
