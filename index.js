@@ -9,6 +9,7 @@
         dateFormat: 'LongDate',
         errorMsg: 'No events in calendar',
         maxEvents: 50,
+        futureEventsOnly: true,
         sortDescending: true
       },
       options);
@@ -17,6 +18,9 @@
     var feedUrl = 'https://www.googleapis.com/calendar/v3/calendars/' +
       encodeURIComponent(defaults.calendarId.trim()) +'/events?key=' + defaults.apiKey +
       '&orderBy=startTime&singleEvents=true';
+      if(defaults.futureEventsOnly) {
+        feedUrl+='&timeMin='+ new Date().toISOString();
+      }
 
     $.ajax({
       url: feedUrl,
