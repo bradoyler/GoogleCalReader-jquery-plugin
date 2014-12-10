@@ -10,6 +10,7 @@ Google Calendar feed reader - plugin to get upcoming events from a *public* goog
 	dateFormat: 'LongDate',
 	errorMsg:'No events in calendar',
 	maxEvents: 50,
+	futureEventsOnly: true,
 	sortDescending: true
 }
 ```
