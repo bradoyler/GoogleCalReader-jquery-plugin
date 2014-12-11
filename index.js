@@ -36,10 +36,11 @@
           var summary = item.summary || '';
 					var description = item.description;
 					var location = item.location;
-					s ='<div class="eventtitle">' + summary + '</div>';
-					s +='<div class="eventdate"> When: '+ formatDate(eventdate, defaults.dateFormat.trim()) +'</div>';
+					var eventDate = formatDate(eventdate, defaults.dateFormat.trim());
+					s ='<div class="eventtitle">'+ summary +'</div>';
+					s +='<div class="eventdate"> When: '+ eventDate +'</div>';
 					if(location) {
-						s +='<div class="location">Where: ' + location + '</div>';
+						s +='<div class="location">Where: '+ location +'</div>';
 					}
 					if(description) {
 						s +='<div class="description">'+ description +'</div>';
@@ -47,8 +48,8 @@
 					$($div).append('<li>' + s + '</li>');
         });
       },
-      error: function(error) {
-        $($div).append('<p>' + defaults.errorMsg + ' | ' + error + '</p>');
+      error: function(xhr, status) {
+        $($div).append('<p>' + status +' : '+ defaults.errorMsg +'</p>');
       }
     });
 
